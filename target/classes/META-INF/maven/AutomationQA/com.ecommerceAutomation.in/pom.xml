@@ -122,19 +122,15 @@
     <plugins>
       <!-- Surefire plugin to run TestNG -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.1.2</version>
-        <configuration>
-        <includes>
-          <include>**/TestRunner*.java</include>
-        </includes>
-          <suiteXmlFiles>
-            <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
-          </suiteXmlFiles>
-          <testFailureIgnore>false</testFailureIgnore>
-        </configuration>
-      </plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.1.2</version>
+      <configuration>
+        <excludes>
+          <exclude>**/Tests/*.java</exclude>
+        </excludes>
+      </configuration>
+    </plugin>
 
       <!-- Allure report plugin (generate) -->
       <plugin>
