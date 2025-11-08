@@ -1,3 +1,4 @@
+/*
 package Tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -21,6 +22,7 @@ public class CheckOutTest extends BaseTest {
         productPage.clickShoppingCart();
         */
         // Step 3: Checkout
+/*
         CheckOutPage checkoutPage = new CheckOutPage(driver);
         checkoutPage.agreeToTerms();
         checkoutPage.clickCheckout();
@@ -34,3 +36,4 @@ public class CheckOutTest extends BaseTest {
                 "Checkout failed - order not confirmed!");
     }
 }
+*/

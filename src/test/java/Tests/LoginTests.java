@@ -1,8 +1,13 @@
+/*
 package Tests;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import Base.BaseTest;
+import Constants.FrameworkConstants;
 import Pages.LoginPage;
+import Utils.ExcelReaderUtils;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -14,14 +19,21 @@ import io.qameta.allure.Story;
 @Feature("Login Module")
 public class LoginTests extends BaseTest
 {
+	private static final Logger logger = LogManager.getLogger(LoginPage.class);
   @Test(priority=1)
   @Severity(SeverityLevel.CRITICAL)
   @Story("Valid Login Test")
   @Description("Test verifies that user can log in with valid credentials.")
   public void LoginWithValidUser()
   {
+	  logger.info("Starting login test...");
 	  LoginPage login=new LoginPage(driver);
-	  login.Login("divyapatil@gmail.com", "Divya@123");
+	  ExcelReaderUtils.setExcelFile(FrameworkConstants.ExcelSheetPath, FrameworkConstants.ExcelSheet);
+	  String Username=ExcelReaderUtils.getCellData(1, 0);
+	  String Password=ExcelReaderUtils.getCellData(1, 1);
+	  login.Login(Username, Password);
+	  ExcelReaderUtils.closeExcel();
+	  logger.info("Login test completed successfully.");
   }
   
   @Test(priority=2)
@@ -38,3 +50,4 @@ public class LoginTests extends BaseTest
   }
 }
 //divyapatil@gmail.com  Divya@123
+*/

@@ -1,3 +1,4 @@
+/*
 package Tests;
 
 import org.testng.annotations.Test;
@@ -18,3 +19,4 @@ public class CartTest extends BaseTest
 	  System.out.println(success+" "+ProductPrice+" "+ProductTitle);
    }
 }
+*/

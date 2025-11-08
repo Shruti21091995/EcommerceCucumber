@@ -24,6 +24,9 @@ public class HomePage
    @FindBy(xpath="//input[@class='button-1 search-box-button']")
    public WebElement SaechButton;
    
+   @FindBy(id="small-searchterms")
+   public WebElement serachTextbox;
+   
    public HomePage(WebDriver driver)
    {
 	   this.driver=driver;
@@ -52,6 +55,7 @@ public class HomePage
    public void searchButtonClick(String productName)
    {
 	   enterProductName(productName);
+	   SaechButton.click();
    }
    
    

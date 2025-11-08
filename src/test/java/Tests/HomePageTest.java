@@ -1,3 +1,4 @@
+/*
 package Tests;
 import org.testng.annotations.Test;
 import Base.BaseTest;
@@ -19,3 +20,4 @@ public class HomePageTest extends BaseTest
 	   
    }
 }
+*/

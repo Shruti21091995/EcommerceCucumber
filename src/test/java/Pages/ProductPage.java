@@ -29,6 +29,11 @@ public class ProductPage
   @FindBy(xpath="//a(@href='/cart']")
   public WebElement ShoppingCart;
   
+  @FindBy(xpath="//span[@class='cart-qty']")
+  public WebElement CartCount;
+  
+  
+ 
   public ProductPage(WebDriver driver)
   {
 	  this.driver=driver;
@@ -70,6 +75,10 @@ public class ProductPage
   {
 	  WaitUtils.ElementToBeVisible(driver, ShoppingCart);
 	  ShoppingCart.click();
+  }
+  public int cartCount()
+  {
+	  return Integer.parseInt(CartCount.getText());
   }
   public void AddtoCartFunctionalityMethod(String ProductQuantity)
   {

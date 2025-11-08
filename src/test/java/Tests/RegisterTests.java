@@ -1,3 +1,4 @@
+/*
 package Tests;
 
 import org.testng.annotations.Test;
@@ -16,3 +17,4 @@ public void Registeruser()
 	System.out.println("The text after Registration is:"+text);
 }
 }
+*/

@@ -1,9 +1,13 @@
+
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="DemoSuite">
+<!-- Implemented the parallel testing using below line test will run at a same time on 3 threads parallaly-->
+<suite name="DemoSuite" parallel="tests" thread-count="3">
    <listeners>
     <listener class-name="listner.TestListener" />
 </listeners>
-<test name="DemoTest">
+<!-- Cross Browser testing implemented using testNG-->
+<test name="ChromeTests">
+<parameter name="browser" value="chrome"></parameter>
     <classes>
           <class name="Tests.LoginTests"/>
            <!--<class name="Pages.RegisterTests"/> --> 
@@ -12,5 +16,26 @@
           <!-- <class name="Pages.CheckOutTest"/>--> 
         </classes>
     </test>
-</suite>
+    
+   <test name="EdgeTests">
+   <parameter name="browser" value="Edge"></parameter>
+    <classes>
+          <class name="Tests.LoginTests"/>
+           <!--<class name="Pages.RegisterTests"/> --> 
+          <!-- <class name="Pages.HomePageTest"/>-->
+           <!-- <class name="Pages.CartTest"/>-->
+          <!-- <class name="Pages.CheckOutTest"/>--> 
+        </classes>
+    </test>
+    <test name="FireFox">
+   <parameter name="browser" value="Firefox"></parameter>
+    <classes>
+          <class name="Tests.LoginTests"/>
+           <!--<class name="Pages.RegisterTests"/> --> 
+          <!-- <class name="Pages.HomePageTest"/>-->
+           <!-- <class name="Pages.CartTest"/>-->
+          <!-- <class name="Pages.CheckOutTest"/>--> 
+        </classes>
+    </test>
+   </suite>
 <!-- Your comment here -->
