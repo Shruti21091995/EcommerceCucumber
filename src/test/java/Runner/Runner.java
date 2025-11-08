@@ -8,10 +8,7 @@ public class Runner
 	@CucumberOptions(
 	    features = "src/test/resources/features",
 	    glue = {"StepDefinitions"},
-	    plugin = {
-	        "pretty",
-	        "html:target/cucumber-reports.html"
-	    },
+	    		 plugin = {"pretty", "json:target/cucumber.json", "html:target/cucumber-html-report"},
 	    monochrome = true
 	)
 	public class TestRunner extends AbstractTestNGCucumberTests 
