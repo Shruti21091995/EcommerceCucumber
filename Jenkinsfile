@@ -21,18 +21,19 @@ pipeline {
             }
         }
 
-        stage('Publish Report') {
-            steps {
-                echo 'Publishing Cucumber HTML report...'
-                publishHTML([
-                    reportDir: 'target/cucumber-html-report',
-                    reportFiles: 'index.html',
-                    reportName: 'Cucumber Report',
-                    allowMissing: true
-                ])
-            }
-        }
+       stage('Publish Report') {
+    steps {
+        echo 'Publishing Cucumber HTML report...'
+        publishHTML([
+            reportDir: 'target/cucumber-reports',      // folder where your report is generated
+            reportFiles: 'cucumber-html-report.html',  // actual report file name
+            reportName: 'Cucumber HTML Report',        // display name in Jenkins
+            keepAll: true,                             // keep past build reports
+            alwaysLinkToLastBuild: true,               // link report from "Last Successful Build"
+            allowMissing: false                        // fail if report is missing
+        ])
     }
+}
 
     post {
         success {
