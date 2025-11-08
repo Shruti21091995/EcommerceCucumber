@@ -21,19 +21,21 @@ pipeline {
             }
         }
 
-       stage('Publish Report') {
-    steps {
-        echo 'Publishing Cucumber HTML report...'
-        publishHTML([
-            reportDir: 'target/cucumber-reports',
-            reportFiles: 'index.html',                 // ✅ changed file name
-            reportName: 'Cucumber HTML Report',
-            keepAll: true,
-            alwaysLinkToLastBuild: true,
-            allowMissing: true                         // ✅ avoids failure if missing
-        ])
-    }
-}
+        stage('Publish Report') {
+            steps {
+                echo 'Publishing Cucumber HTML report...'
+                publishHTML([
+                    reportDir: 'target/cucumber-reports',
+                    reportFiles: 'index.html',          // ✅ your Cucumber HTML report file
+                    reportName: 'Cucumber HTML Report',
+                    keepAll: true,
+                    alwaysLinkToLastBuild: true,
+                    allowMissing: true
+                ])
+            }
+        }
+    } // ✅ closes 'stages' block
+
     post {
         success {
             echo '✅ Build succeeded!'
@@ -42,4 +44,4 @@ pipeline {
             echo '❌ Build failed!'
         }
     }
-}
+} // ✅ closes 'pipeline' block
