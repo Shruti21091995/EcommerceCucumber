@@ -10,12 +10,11 @@ import io.cucumber.junit.CucumberOptions;
     glue = {"StepDefinitions"},
     plugin = {
         "pretty",
-        "html:target/cucumber-reports/cucumber-html-report.html",
+        "html:target/cucumber-reports",            // ✅ creates HTML report directory
         "json:target/cucumber-reports/cucumber.json",
         "junit:target/cucumber-reports/cucumber.xml"
     },
-    monochrome = true,
-    publish = true
+    monochrome = true
 )
 public class Runner {
 }
